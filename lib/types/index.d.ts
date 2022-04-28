@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type React from "react";
 export declare type Currency = 'NGN' | 'GHS' | 'USD' | 'ZAR';
 export declare type PaymentChannels = 'bank' | 'card' | 'qr' | 'ussd' | 'mobile_money';
 interface Response {
@@ -25,6 +25,18 @@ export interface PayStackProps {
     autoStart?: boolean;
     activityIndicatorColor?: string;
     ref: React.ReactElement;
+}
+export interface ISplitPayment {
+    subAccount: string;
+    transactionCharge?: string | number;
+    bearer?: string;
+}
+export interface IMultiSplitPayment {
+    splitCode: string;
+}
+export interface ISubscription {
+    plan: string;
+    quantity?: string;
 }
 export interface PayStackRef {
     startTransaction: () => void;
